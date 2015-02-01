@@ -23,7 +23,7 @@ galaxy_info:
 ansigenome_info:
   github_url: "https://github.com/ypid/ansible-service-rsyslog"
   git_branch: "master"
-  galaxy_id: ''
+  galaxy_id: '2767'
 
   travis: True
 
