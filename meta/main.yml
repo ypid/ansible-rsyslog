@@ -1,0 +1,30 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: Robin Schneider
+  description: 'My rsyslog configratuion. Reconfigures log format and which files to log to.'
+  license: AGPLv3
+  min_ansible_version: '1.2'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+  categories:
+    - system
+    - monitoring
+
+ansigenome_info:
+  galaxy_id: ''
+
+  travis: True
+
+  synopsis: |
+    An example logline locks like this:
+    <syslog.info>1 Feb  1 18:59:31 mix-uno rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="5870" x-info="http://www.rsyslog.com"] start
