@@ -1,8 +1,8 @@
 ## service-rsyslog
 
 [![Travis CI](http://img.shields.io/travis/ypid/ansible-service-rsyslog.svg?style=flat)](http://travis-ci.org/ypid/ansible-service-rsyslog)
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.service–rsyslog-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2767)
 [![Platforms](http://img.shields.io/badge/platforms-debian%20/%20ubuntu-lightgrey.svg?style=flat)](#)
-[Ansible Galaxy](https://galaxy.ansible.com/list#/roles/2767)
 
 
 My rsyslog configuration. Reconfigures log format and to which files to log.
