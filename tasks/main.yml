@@ -11,11 +11,32 @@
 
 - name: Configure logrotate
   copy:
-    src: rsyslog-own
-    dest: /etc/logrotate.d/rsyslog-own
+    src: "{{ item }}"
+    dest: "/etc/logrotate.d/{{ item }}"
     mode: 0640
     owner: root
     group: root
   with_items:
     - "rsyslog-own"
     - "defaults-own"
+
+- name: Get a list of all files under /etc/logrotate.d/
+  raw: find /etc/logrotate.d/ -type f
+  register: service_rsyslog_logrotate_files
+
+## FIXME needs to run multiple times.
+- name: Set nocompess for all files under /etc/logrotate.d/
+  lineinfile:
+    dest: "{{ item }}"
+    line: '\1 no\2'
+    backrefs: yes
+    regexp: '^(\s+)(compress)$'
+  with_items: service_rsyslog_logrotate_files.stdout_lines
+
+- name: Set nocompess for all files under /etc/logrotate.d/
+  lineinfile:
+    dest: "{{ item }}"
+    line: '\1 no\2'
+    backrefs: yes
+    regexp: '^(\s+)(compress)$'
+  with_items: service_rsyslog_logrotate_files.stdout_lines
