@@ -1,24 +1,27 @@
 ---
 
 - name: Configure /etc/rsyslog.conf
-  copy:
-    src: rsyslog.conf
-    dest: /etc/rsyslog.conf
-    mode: 0640
-    owner: root
-    group: root
+  template:
+    src: '{{ item }}.j2'
+    dest: '/{{ item }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0640'
   notify: [ 'Restart rsyslog' ]
+  with_items:
+    - 'etc/rsyslog.conf'
 
 - name: Configure logrotate
-  copy:
-    src: "{{ item }}"
-    dest: "/etc/logrotate.d/{{ item }}"
-    mode: 0640
-    owner: root
-    group: root
+  template:
+    src: '{{ item }}.j2'
+    dest: '/{{ item }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0640'
+  notify: [ 'Restart rsyslog' ]
   with_items:
-    - "rsyslog-own"
-    - "defaults-own"
+    - 'etc/logrotate.d/rsyslog-own'
+    - 'etc/logrotate.d/defaults-own'
 
 - name: Get a list of all files under /etc/logrotate.d/
   raw: find /etc/logrotate.d/ -type f
@@ -26,7 +29,7 @@
 
 - name: Set nocompess for all files under /etc/logrotate.d/
   replace:
-    dest: "{{ item }}"
+    dest: '{{ item }}'
     replace: '\1 no\2'
     regexp: '^(\s+)(compress)$'
   with_items: service_rsyslog_logrotate_files.stdout_lines
