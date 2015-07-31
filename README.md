@@ -1,17 +1,17 @@
-## service-rsyslog
+## rsyslog
 
-[![Travis CI](http://img.shields.io/travis/ypid/ansible-service-rsyslog.svg?style=flat)](http://travis-ci.org/ypid/ansible-service-rsyslog)
-[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.service–rsyslog-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2767)
+[![Travis CI](http://img.shields.io/travis/ypid/ansible-rsyslog.svg?style=flat)](http://travis-ci.org/ypid/ansible-rsyslog)
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.rsyslog-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4633)
 [![Platforms](http://img.shields.io/badge/platforms-debian%20/%20ubuntu-lightgrey.svg?style=flat)](#)
 
 
-My rsyslog configuration. Reconfigures log format and to which files to log.
+My rsyslog configuration. Reconfigures log format, log location and logrotate.
 
-An example logline locks like this:
+An example log entry looks like this:
 
-    <syslog.info>1 Feb  1 18:59:31 mix-uno rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="5870" x-info="http://www.rsyslog.com"] start
+    &lt;syslog.info&gt;1  2015-07-27 23:32:23.412307 hostname rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="1063" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
 
-The log format is based on [RFC 3164](http://www.ietf.org/rfc/rfc3164.txt) with some modifications to make it easier readable for humans.
+The log format is based on [RFC 5424](https://tools.ietf.org/html/rfc5424) with some modifications to make it easier humans-readable.
 
 This role also changes some logrotate defaults.
 
@@ -19,12 +19,12 @@ This role also changes some logrotate defaults.
 
 This role requires at least Ansible `v1.2`. To install it, run:
 
-    ansible-galaxy install ypid.service-rsyslog
+    ansible-galaxy install ypid.rsyslog
 
 To install via git, run either:
 
-    git clone https://github.com/ypid/ansible-service-rsyslog ypid.service-rsyslog
-    git submodule add https://github.com/ypid/ansible-service-rsyslog roles/ypid.service-rsyslog
+    git clone https://github.com/ypid/ansible-rsyslog.git ypid.rsyslog
+    git submodule add https://github.com/ypid/ansible-rsyslog.git ypid.rsyslog
 
 
 
@@ -34,7 +34,7 @@ To install via git, run either:
 
 ### Authors and license
 
-`service-rsyslog` role was written by:
+`rsyslog` role was written by:
 
 - [Robin Schneider](https://github.com/ypid) | [e-mail](mailto:ypid@riseup.net)
 

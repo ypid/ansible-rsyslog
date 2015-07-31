@@ -1,12 +1,9 @@
 ---
 
-dependencies: []
-
 galaxy_info:
   author: Robin Schneider
-  description: My rsyslog configuration. Reconfigures log format and to which files to log.
+  description: My rsyslog configuration. Reconfigures log format, log location and logrotate.
   license: AGPLv3
-  min_ansible_version: '1.2'
   platforms:
     - name: Ubuntu
       versions:
@@ -18,20 +15,20 @@ galaxy_info:
         - jessie
   categories:
     - system
-    - monitoring
-
+  min_ansible_version: 1.2
+dependencies: []
 ansigenome_info:
-  github_url: "https://github.com/ypid/ansible-service-rsyslog"
+  github_url: "https://github.com/ypid/ansible-rsyslog"
   git_branch: "master"
-  galaxy_id: '2767'
+  galaxy_id: "4633"
 
   travis: True
 
   synopsis: |
-    An example logline locks like this:
+    An example log entry looks like this:
 
-        <syslog.info>1  2015-07-27 23:32:23.412307 hostname rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="1063" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
+        &lt;syslog.info&gt;1  2015-07-27 23:32:23.412307 hostname rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="1063" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
 
-    The log format is based on [RFC 5424](https://tools.ietf.org/html/rfc5424) with some modifications to make it easier readable for humans.
+    The log format is based on [RFC 5424](https://tools.ietf.org/html/rfc5424) with some modifications to make it easier humans-readable.
 
     This role also changes some logrotate defaults.
