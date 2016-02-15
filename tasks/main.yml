@@ -32,4 +32,4 @@
     dest: '{{ item }}'
     replace: '\1 no\2'
     regexp: '^(\s+)(compress)$'
-  with_items: service_rsyslog_logrotate_files.stdout_lines
+  with_items: '{{ service_rsyslog_logrotate_files.stdout_lines|d([]) }}'
