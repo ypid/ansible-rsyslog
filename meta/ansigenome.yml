@@ -1,0 +1,17 @@
+---
+
+ansigenome_info:
+  github_url: "https://github.com/ypid/ansible-rsyslog"
+  git_branch: "master"
+  galaxy_id: "4633"
+
+  travis: True
+
+  synopsis: |
+    An example log entry looks like this:
+
+    > &lt;syslog.info&gt;1  2015-07-27 23:32:23.412307 hostname rsyslogd - - -  [origin software="rsyslogd" swVersion="8.4.2" x-pid="1063" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
+
+    The log format is based on [RFC 5424](https://tools.ietf.org/html/rfc5424) with some modifications to make it easier humans-readable.
+
+    This role also changes some logrotate defaults. Those changes are made to better work with logcheck.
